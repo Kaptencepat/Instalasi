@@ -36,9 +36,26 @@ mv x11vnc.service /lib/systemd/system/
 systemctl enable x11vnc.service
 systemctl start x11vnc.sercvice
 
+# Install Google chrome
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+
+# Menginstal Chrome
+sudo dpkg -i google-chrome-stable_current_amd64.deb
+
+# Memperbaiki dependensi yang rusak (jika ada)
+sudo apt --fix-broken install -y
+
+# Membersihkan paket yang tidak diperlukan
+sudo apt autoremove -y
+
+# Menghapus paket Chrome yang telah diunduh
+rm google-chrome-stable_current_amd64.deb
+
+
+# Masuk ke User adam-user
 cd /home/adam-user
-# clone x11vnc service 
-git clone https://github.com/Kaptencepat/X11VNC.git
+
+
 # UnInstall docker bila ada
 sudo apt-get remove docker docker-engine docker.io containerd runc
 
@@ -139,6 +156,10 @@ if [ $? -ne 0 ]; then
     echo "Pastikan untuk memperbarui password untuk pengguna postgres."
     exit 1
 fi
+
+# Membuka Google Chrome
+google-chrome-stable
+
 # set git credentials
 git config --global credential.helper store
 git config --global user.name "nisa7"
@@ -171,8 +192,8 @@ cd /home/adam-user/adamlis/Instalasi/web-socket-lis
 nmp install
 
 #running container web-socket-lis
-docker-compose up --build -d
-
+#docker-compose up --build -d
+sudo pm2 start index.js --log-date-format="YYYY-MM-DD HH:mm:ss Z" --name pemeriksaan -- #--port 7780
 # masuk directory adamlabs-installer
 cd /home/adam-user/adamlis/Instalasi/adamlabs-installer
 
@@ -186,5 +207,6 @@ npm run build
 npm run start
 
 echo "Instalasi  selesai."
+
 
 
