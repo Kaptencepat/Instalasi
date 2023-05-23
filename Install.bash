@@ -197,7 +197,7 @@ npm install
 
 #running container web-socket-lis
 #docker-compose up --build -d
-sudo pm2 start index.js --log-date-format="YYYY-MM-DD HH:mm:ss Z" --name pemeriksaan -- --port 7780
+sudo pm2 start index.js --log-date-format="YYYY-MM-DD HH:mm:ss Z" --name websocket -- --port 7780
 # masuk directory adamlabs-installer
 cd /home/adam-user/adamlis/Instalasi/adamlabs-installer
 
