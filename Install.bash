@@ -77,13 +77,14 @@ sudo chmod a+r /etc/apt/keyrings/docker.gpg
 
 # Tambahkan repository Docker ke sistem
 echo \
-  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-# Perbarui indeks paket dengan repository Docker baru
-sudo apt-get update
 #"deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
  # "$(. /etc/os-release && echo "stretch")" stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt-get update
 # Instal Docker
+
 
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
