@@ -189,7 +189,7 @@ git clone https://gitlab.com/wahana-meditek-indonesia/lis/adamlabs-installer.git
 cd /home/adam-user/adamlis/Instalasi/web-socket-lis
 
 # downloads node modules
-nmp install
+npm install
 
 #running container web-socket-lis
 #docker-compose up --build -d
