@@ -37,10 +37,10 @@ systemctl enable x11vnc.service
 systemctl start x11vnc.sercvice
 
 # Install Google chrome
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+#wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 
 # Menginstal Chrome
-sudo dpkg -i google-chrome-stable_current_amd64.deb
+sudo apt install -y chromium
 
 # Memperbaiki dependensi yang rusak (jika ada)
 sudo apt --fix-broken install -y
@@ -158,7 +158,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # Membuka Google Chrome
-google-chrome-stable
+google-chromium
 
 # set git credentials
 git config --global credential.helper store
