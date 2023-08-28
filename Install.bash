@@ -189,26 +189,32 @@ git clone https://gitlab.com/wahana-meditek-indonesia/lis/web-socket-lis.git
 # clone repository wizzard installer
 git clone https://gitlab.com/wahana-meditek-indonesia/lis/adamlabs-installer.git
 
+echo "adamlabs Installer"
+cd /home/adam-user/adamlis/Instalasi/adamlabs-installer
+cp docker-compose.yml-example docker-compose.yml
+cp Dockerfile-example Dockerfile
+docker-compose up --build -d
+
 # masuk directory web-socker-lis
 cd /home/adam-user/adamlis/Instalasi/web-socket-lis
 
 # downloads node modules
-npm install
+#npm install
 
 #running container web-socket-lis
-#docker-compose up --build -d
-sudo pm2 start index.js --log-date-format="YYYY-MM-DD HH:mm:ss Z" --name websocket -- --port 7780
+docker-compose up --build -d
+#sudo pm2 start index.js --log-date-format="YYYY-MM-DD HH:mm:ss Z" --name websocket -- --port 7780
 # masuk directory adamlabs-installer
-cd /home/adam-user/adamlis/Instalasi/adamlabs-installer
+#cd /home/adam-user/adamlis/Instalasi/adamlabs-installer
 
 # install kebutuhan npm
-npm install
+#npm install
 
 # build aplikasi node
-npm run build
-
+#npm run build
+#docker-compose up --build -d
 # start aplikasi
-npm run start
+#npm run start
 
 echo "Instalasi  selesai."
 
