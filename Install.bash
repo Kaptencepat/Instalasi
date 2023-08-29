@@ -17,6 +17,13 @@ sudo apt install git -y
 # install nano
 sudo apt install nano -y
 
+# Install nodeJS
+sudo curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+
+sudo apt install nodejs
+
+sudo npm install -g npm@9.8.1
+
 # install pm2 
 sudo npm install pm2 -g
 
@@ -39,9 +46,6 @@ mv x11vnc.service /lib/systemd/system/
 systemctl enable x11vnc.service
 systemctl start x11vnc.sercvice
 
-# Install Google chrome
-#wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-
 # Menginstal Chrome
 sudo apt install -y chromium
 
@@ -51,13 +55,8 @@ sudo apt --fix-broken install -y
 # Membersihkan paket yang tidak diperlukan
 sudo apt autoremove -y
 
-# Menghapus paket Chrome yang telah diunduh
-rm google-chrome-stable_current_amd64.deb
-
-
 # Masuk ke User adam-user
 cd /home/adam-user
-
 
 # UnInstall docker bila ada
 sudo apt-get remove docker docker-engine docker.io containerd runc
@@ -83,7 +82,9 @@ echo \
  # "$(. /etc/os-release && echo "stretch")" stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 sudo apt-get update
-# Instal Docker
+
+
+echo "Instal Docker"
 
 
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io
@@ -188,6 +189,7 @@ cd /home/adam-user/adamlis/Instalasi
 git clone https://gitlab.com/wahana-meditek-indonesia/lis/web-socket-lis.git 
 # clone repository wizzard installer
 git clone https://gitlab.com/wahana-meditek-indonesia/lis/adamlabs-installer.git
+
 
 #echo "adamlabs Installer"
 #cd /home/adam-user/adamlis/Instalasi/adamlabs-installer
